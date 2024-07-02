@@ -1,8 +1,9 @@
 "use client";
-import Link from "next/link";
 import { Inter } from "next/font/google";
-import { usePathname } from "next/navigation";
 import "./globals.css";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -12,8 +13,8 @@ const metadata = {
 };
 
 const links = [
-  { name: "Movies", href: "/" },
-  { name: "TV Shows", href: "/tvshows" },
+  { name: "MOVIES", href: "/" ? "/movies" : "" },
+  { name: "TV SHOWS", href: "/tvshows" },
 ];
 
 export default function RootLayout({ children }) {
@@ -22,14 +23,14 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header className="flex items-center bg-neutral-900 text-white py-6 space-x-20">
-          <h1 className="text-red-600 text-xl font-bold">StreamFilm</h1>
-          <ul className="flex space-x-6">
+        <header className="flex text-center bg-gray-900 space-x-8 py-4">
+          <h1 className="text-red-600 ml-2 font-serif text-2xl">StreamFilm</h1>
+          <ul className="flex space-x-5 text-white px-8">
             {links.map((link) => {
               const isActive = pathname === link.href;
               return (
-                <li key={link.name} className={isActive ? "border-b-4 border-red-600" : ""}>
-                  <Link href={link.href}>
+                <li key={link.name} className="relative">
+                  <Link href={link.href} className={isActive ? " border-b-4 border-red-500" : ""}>
                     {link.name}
                   </Link>
                 </li>

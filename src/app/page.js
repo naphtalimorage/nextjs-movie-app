@@ -1,10 +1,9 @@
-import Link from "next/link";
+import Movies from "./movies/page"
 
-export default function Home() {
-    return (
-      <>
-        <h1>Welcome Home</h1>
-      </>
-      
-    );
-  }
+export default function HomePage() {
+  return (
+    <>
+      <Movies/>
+    </>
+  )
+}
