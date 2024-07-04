@@ -1,30 +1,39 @@
 "use client";
-import useFetchTvshows from "../usefetch/useFetchTvshows";
-import Image from "next/image";
-import Film from "../film/page";
+
+import TvshowsRow from "../tvshowlist/tvshowrow";
+import useFetchTvshows from "../fetching/useFetchTvshows";
 
 export default function Tvshows() {
   const API_KEY = "9e405034103c33bc18daf866985f6671";
 
-  const endpoint = "airing_today";
-  const { data: airingtodays } = useFetchTvshows(endpoint, API_KEY);
+  const endpoint1 = "airing_today";
+  const endpoint2 = "on_the_air";
+  const endpoint3 = "popular";
+  const endpoint4 = "top_rated";
+
+  const { data: airingtodays } = useFetchTvshows(endpoint1, API_KEY);
+  const { data: ontheAirTvShows } = useFetchTvshows(endpoint2, API_KEY);
+  const { data: popularTvShows } = useFetchTvshows(endpoint3, API_KEY);
+  const { data: topratedTvShows } = useFetchTvshows(endpoint4, API_KEY);
+
+  const airingTodayCategory = "Airing Today";
+  const ontheAirCategory = "On The Air";
+  const popularCategory = "Popular";
+  const topratedCategory = "Top Rated";
 
   return (
-    <div className=" ml-5 mt-4">
-      <h2 className="text-2xl ">Airing Today</h2>
-      <div className="flex  overflow-x-auto scroll-snap-type-x-mandatory scroll-touch mt-2">
-        {airingtodays &&
-          airingtodays.map((tvshow) => {
-            return (
-              <div key={tvshow.id} className="">
-                <Film
-                  filmTitle={tvshow.name}
-                  releaseDate={tvshow.first_air_date}
-                  posterUrl={tvshow.poster_path}
-                />
-              </div>
-            );
-          })}
+    <div>
+      <div className=" ml-5 mt-4 px-5">
+        <TvshowsRow category={airingTodayCategory} tvshows={airingtodays} />
+      </div>
+      <div className=" ml-5 mt-4 px-5">
+        <TvshowsRow category={ontheAirCategory} tvshows={ontheAirTvShows} />
+      </div>
+      <div className=" ml-5 mt-4 px-5">
+        <TvshowsRow category={popularCategory} tvshows={popularTvShows} />
+      </div>
+      <div className=" ml-5 mt-4 px-5">
+        <TvshowsRow category={topratedCategory} tvshows={topratedTvShows} />
       </div>
     </div>
   );
