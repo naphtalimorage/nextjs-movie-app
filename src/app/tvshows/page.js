@@ -1,7 +1,7 @@
 "use client";
-
-import TvshowsRow from "../tvshowlist/tvshowrow";
-import useFetchTvshows from "../fetching/useFetchTvshows";
+import { CarouselCustomArrows } from "../components/carousel/page";
+import TvshowsRow from "../tvshowlist/tvshowlist";
+import useFetchTvshows from "../fetchingseries/useFetchTvshows";
 
 export default function Tvshows() {
   const API_KEY = "9e405034103c33bc18daf866985f6671";
@@ -23,6 +23,7 @@ export default function Tvshows() {
 
   return (
     <div>
+      <CarouselCustomArrows/>
       <div className=" ml-5 mt-4 px-5">
         <TvshowsRow category={airingTodayCategory} tvshows={airingtodays} />
       </div>
