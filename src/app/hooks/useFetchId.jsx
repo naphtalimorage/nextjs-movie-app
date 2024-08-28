@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 const useFetchId = (category, endpoint, option) => {
     const [cast, setCast] = useState([]);
     const [recommendation, setRecommendation] = useState([]);
-    const apiKey = process.env.API_KEY;
+    const apiKey = "9e405034103c33bc18daf866985f6671";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -24,7 +24,7 @@ const useFetchId = (category, endpoint, option) => {
       }
     };
     fetchData();
-  }, [endpoint, category, option]);
+  }, [endpoint, category, option, apiKey]);
 
   return { cast, recommendation };
 };

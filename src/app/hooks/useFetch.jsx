@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 const useFetch = (category, endpoint) => {
   const [data, setData] = useState(null);
   const [details, setDetails] = useState(null);
-  const apiKey = process.env.API_KEY;
+  const apiKey = "9e405034103c33bc18daf866985f6671";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,7 +23,7 @@ const useFetch = (category, endpoint) => {
       }
     };
     fetchData();
-  }, [endpoint, category]);
+  }, [endpoint, category, apiKey]);
 
   return { data, details };
 };

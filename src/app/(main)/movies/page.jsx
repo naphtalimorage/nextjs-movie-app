@@ -4,7 +4,6 @@ import MovieRow from "../moviedetails/movielist";
 
 
 export default function Movies() {
-  const API_KEY = "9e405034103c33bc18daf866985f6671";
   
   const endpoint1 = "now_playing";
   const endpoint2 = "popular";
@@ -13,10 +12,10 @@ export default function Movies() {
    
   const category = "movie";
   
-  const { data: nowPlayingMovies} = useFetch( category, endpoint1, API_KEY);
-  const { data: popularMovies } = useFetch( category, endpoint2,API_KEY);
-  const { data: topRatedMovies } = useFetch( category, endpoint3, API_KEY);
-  const { data: upcomingMovies } = useFetch( category, endpoint4, API_KEY);
+  const { data: nowPlayingMovies} = useFetch( category, endpoint1);
+  const { data: popularMovies } = useFetch( category, endpoint2);
+  const { data: topRatedMovies } = useFetch( category, endpoint3);
+  const { data: upcomingMovies } = useFetch( category, endpoint4);
 
   const nowPlayingCategory = "Now Playing";
   const PopularCategory = "Popular";
