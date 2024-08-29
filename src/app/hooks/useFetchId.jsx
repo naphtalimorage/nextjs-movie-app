@@ -24,7 +24,7 @@ const useFetchId = (category, endpoint, option) => {
       }
     };
     fetchData();
-  }, [endpoint, category, option, apiKey]);
+  }, [endpoint, category, option]);
 
   return { cast, recommendation };
 };

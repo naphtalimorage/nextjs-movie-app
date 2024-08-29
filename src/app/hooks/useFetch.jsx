@@ -23,7 +23,7 @@ const useFetch = (category, endpoint) => {
       }
     };
     fetchData();
-  }, [endpoint, category, apiKey]);
+  }, [endpoint, category]);
 
   return { data, details };
 };

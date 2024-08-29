@@ -19,8 +19,8 @@ const Details = () => {
   const option2 = "credits";
 
   const { details: tvshow } = useFetch(category, endpoint, apiKey);
-  const {cast: cast}= useFetchId(category, endpoint, apiKey, option2);
-  const {recommendation: recommendation}= useFetchId(category, endpoint, apiKey, option1);
+  const {cast: cast}= useFetchId(category, endpoint, option2);
+  const {recommendation: recommendation}= useFetchId(category, endpoint, option1);
 
 
   if (!tvshow) {

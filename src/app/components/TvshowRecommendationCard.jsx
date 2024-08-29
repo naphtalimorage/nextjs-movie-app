@@ -3,9 +3,7 @@ import Image from "next/image";
 
 export default function TvshowRecommendationsCard({ recommendations, limit = 12 }) {
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 mb-5">
-
-
+        <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 mb-5">
             {recommendations &&
                 recommendations.slice(0, limit).map(recommendation => (
                     <div key={recommendation.id} className="w-72 h-40">

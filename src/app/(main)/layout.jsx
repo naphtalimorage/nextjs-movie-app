@@ -3,6 +3,7 @@ import CarouselPage from "../components/Carousel";
 import { Footer } from "../components/Footer";
 import ComplexNavbar from "../components/Navbar";
 import { usePathname } from "next/navigation";
+import Home from "./page";
 import Link from "next/link";
 
 
