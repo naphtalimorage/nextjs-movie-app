@@ -10,17 +10,38 @@ import useFetch from "@/app/hooks/useFetch";
 import useFetchId from "@/app/hooks/useFetchId";
 
 const Details = () => {
-  const apiKey = "9e405034103c33bc18daf866985f6671";
+  const API_KEY = "9e405034103c33bc18daf866985f6671";
   const { tvshowid } = useParams();
+  const [trailer, setTrailer] = useState(null);
+
+  useEffect(() => {
+    const fetchTrailer = async () => {
+      try {
+        const response = await fetch(`https://api.themoviedb.org/3/tv/${tvshowid}/videos?api_key=${API_KEY}`);
+        const data = await response.json();
+        const trailer = data.results.find(
+          (video) => video.type === "Trailer" && video.site === "YouTube"
+        );
+        if (trailer) {
+          setTrailer(`https://www.youtube.com/watch?v=${trailer.key}`);
+        } else {
+          console.log("No trailer found");
+        }
+      } catch (e) {
+        console.error("Error fetching trailer:", e);
+      }
+    }
+    fetchTrailer();
+  }, [tvshowid, API_KEY]);
 
   const category = "tv";
   const endpoint = tvshowid;
   const option1 = "recommendations";
   const option2 = "credits";
 
-  const { details: tvshow } = useFetch(category, endpoint, apiKey);
-  const {cast: cast}= useFetchId(category, endpoint, option2);
-  const {recommendation: recommendation}= useFetchId(category, endpoint, option1);
+  const { details: tvshow } = useFetch(category, endpoint,);
+  const { cast: cast } = useFetchId(category, endpoint, option2);
+  const { recommendation: recommendation } = useFetchId(category, endpoint, option1);
 
 
   if (!tvshow) {
@@ -38,6 +59,7 @@ const Details = () => {
         tvshowname={tvshow.name}
         tvshowfirstonair={tvshow.first_air_date}
         tvshowoverview={tvshow.overview}
+        trailer={trailer}
       />
       <div className="px-10">
         <h2 className="text-2xl mb-5 font-sans font-bold">Top Cast</h2>

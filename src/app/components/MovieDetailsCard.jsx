@@ -8,7 +8,7 @@ import {
 import Image from "next/image";
 
 
-export default function MovieDetailsCard({moviepath,movietitle,moviereleasedate,movieoverview}) {
+export default function MovieDetailsCard({moviepath,movietitle,moviereleasedate,movieoverview, trailer}) {
 
     return (
         <div className="flex justify-center items-center min-h-screen">
@@ -36,9 +36,9 @@ export default function MovieDetailsCard({moviepath,movietitle,moviereleasedate,
                     <Typography color="gray" className="mb-8 font-normal">
                         {movieoverview}
                     </Typography>
-                    <a href="#" className="inline-block">
+                    <a href={trailer} className="inline-block">
                         <Button variant="text" className="flex items-center gap-2">
-                            Learn More
+                            Play Trailer
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
