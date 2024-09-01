@@ -52,7 +52,7 @@ export default function Searchbar() {
                 </div>
             </div>
             
-            <Link href={`/searchbar/searchlisting?query=${encodeURIComponent(query)}`}>
+            <Link href={`/searchbar/search?query=${encodeURIComponent(query)}`}>
                 <Button
                     size="md"
                     className="bg-gradient-to-r from-red-500 to-blue-500 text-white hover:from-red-600 hover:to-blue-600 mt-1 rounded-full sm:mt-0"

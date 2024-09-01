@@ -30,11 +30,11 @@ export default function SearchResults() {
 
     return (
         <div className="container mx-auto px-4">
-            <h1 className="text-3xl font-bold text-center mt-6">Search Results for {newParam}</h1>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 mt-8">
+            <h1 className="text-3xl font-bold text-center mt-6">Search Results for <span className="text-italic text-red">{newParam}</span></h1>
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-16 mb-20 mt-10">
                 {movies.length > 0 ? (
                     movies.map((movie) => (
-                        <Link href={`/movielist/${movie.id}/`} key={movie.id}>
+                        <Link href={`/moviedetails/${movie.id}`}key={movie.id}>
                             <MovieCard
                                 filmTitle={movie.title}
                                 releaseDate={movie.release_date}
