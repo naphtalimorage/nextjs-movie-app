@@ -42,7 +42,7 @@ function NavList() {
 export default function RootLayout({ children }) {
   const pathname = usePathname();
 
-  const isTvShowDetailsPage = (pathname.startsWith("/tvshowlist/") || pathname.startsWith("/moviedetails/") || pathname.startsWith("/searchbar/")) && pathname.split("/").length === 3;
+  const isTvShowDetailsPage = (pathname.startsWith("/tvshowlist/") || pathname.startsWith("/tvshowlist/tvshowid/iframe/") || pathname.startsWith("/moviedetails/") || pathname.startsWith("/searchbar/")) && pathname.split("/").length === 3;
 
 
   return (
