@@ -89,9 +89,12 @@ const Details = () => {
               {tvshow.first_air_date}
             </Typography>
             
+            <Typography color="gray" className="mb-8 font-normal w-[580px]">
+              <div>Overview</div>
+              {tvshow.overview}
+            </Typography>
             <Button
-              variant="text"
-              className="flex items-center gap-2"
+              className="flex items-center gap-2 bg-red-700 hover:bg-red-500"
               onClick={() => setIsModalOpen(true)}
             >
               Play Trailer
@@ -110,10 +113,6 @@ const Details = () => {
                 />
               </svg>
             </Button>
-            
-            <Typography color="gray" className="mb-8 font-normal w-[580px]">
-              {tvshow.overview}
-            </Typography>
           </CardBody>
         </Card>
       </div>

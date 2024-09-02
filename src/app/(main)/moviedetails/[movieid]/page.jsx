@@ -72,16 +72,18 @@ const Details = () => {
             />
           </CardHeader>
           <CardBody>
-            <Typography variant="h4" color="black" className="mb-4 uppercase">
+            <Typography variant="h4" color="black" className="mb-4 text-4xl font-extrabold font-serif">
               {movie.title}
             </Typography>
-            <Typography variant="h6" color="blue-gray" className="mb-2">
+            <hr />
+            <Typography variant="h6" color="blue-gray" className="mb-2 mt-2">
               Release Date: {movie.release_date}
             </Typography>
             <Typography color="gray" className="mb-8 font-normal">
+              <div className="text-base text-black font-bold">Overview</div>
               {movie.overview}
             </Typography>
-            <Button onClick={() => setIsModalOpen(true)} variant="text" className="flex items-center gap-2">
+            <Button onClick={() => setIsModalOpen(true)} className="flex items-center gap-2 bg-red-700 hover:bg-red-400">
               Play Trailer
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -114,7 +116,7 @@ const Details = () => {
       <VideoModal
         trailerUrl={trailer}
         isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}  
+        onClose={() => setIsModalOpen(false)}
       />
     </div>
   );

@@ -15,7 +15,7 @@ export default function MovieCard({
         width={150}
         priority={false}
         height={200}
-        className="rounded-lg"
+        className="rounded-lg "
       />
       <h3 className="whitespace-nowrap overflow-hidden text-ellipsis lg:text-sm sm:text-xs font-bold ml-2">
         {filmTitle}
