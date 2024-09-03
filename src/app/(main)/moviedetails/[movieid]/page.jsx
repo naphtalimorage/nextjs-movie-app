@@ -105,7 +105,7 @@ const Details = () => {
       </div>
       <div className="px-10">
         <h2 className="text-2xl mb-5 font-sans font-bold">Top Cast</h2>
-        <MovieCastCard casts={cast} />
+        <MovieCastCard casts={cast} /> 
       </div>
       <div className="px-10">
         <h2 className="flex justify-center items-center text-2xl font-sans font-bold mb-5 mt-6">Recommendations</h2>
